@@ -193,3 +193,19 @@ JOIN
   orders ON orders.order_ID = payments.payment_ID;
 
   
+INSERT INTO invetory(invetory_ID, item_name, item_status, units, unit_cost, staff_staff_ID, supplier_supplier_ID) VALUES
+    (501,'Potatoes','available', 100, 10000, 5, 345),
+    (502,'Plates','available', 540, 2500, 1, 346),
+    (503,'Firewood','unavailable',0 ,0 , 5, 346),
+    (504,'Salt','available', 100, 1000, 5, 345),
+    (505,'Royco','unavailable',0 , 0, 5, 345);
+
+CREATE TABLE invetory (
+  invetory_ID INT PRIMARY KEY ,
+  item_name VARCHAR(100) NOT NULL,
+  item_status VARCHAR(45) NOT NULL,
+  units INT NULL,
+  unit_cost INT NOT NULL,
+  staff_staff_ID INT UNIQUE,
+  CONSTRAINT fk_invetory_staff FOREIGN KEY (staff_staff_ID) REFERENCES staff (staff_ID) 
+);
